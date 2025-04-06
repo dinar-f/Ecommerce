@@ -47,7 +47,6 @@ final class CategoryView: UIView {
     }
 }
 
-
 private extension CategoryView {
     
     func configureView() {

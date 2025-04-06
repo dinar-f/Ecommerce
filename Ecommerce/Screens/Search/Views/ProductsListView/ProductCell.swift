@@ -16,18 +16,17 @@ final class ProductCell: UICollectionViewCell {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 8
-        view.layer.shadowColor = UIColor.black.cgColor // Цвет тени
-        view.layer.shadowOpacity = 0.1 // Прозрачность тени
-        view.layer.shadowOffset = CGSize(width: 0, height: 2) // Чуть меньше тени сверху
-        view.layer.shadowRadius = 6 // Размытие тени для плавности
-        view.layer.masksToBounds = false // Оставляем тень за границами
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowRadius = 6
+        view.layer.masksToBounds = false
         return view
     }()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = R.Images.navBar.userAvatar
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -36,7 +35,6 @@ final class ProductCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
         label.numberOfLines = 2
-        label.text = "Lorem ipsum dolor sit amet consectetur"
         label.textColor = .black
         return label
     }()
@@ -45,14 +43,12 @@ final class ProductCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12, weight: .bold)
         label.textColor = R.Colors.secondary
-        label.text = "Clothes"
         return label
     }()
     
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.text = "16$"
         label.textColor = .black
         return label
     }()

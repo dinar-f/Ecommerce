@@ -57,12 +57,19 @@ private extension TextField {
     
     func setupView() {
         font = .systemFont(ofSize: 18)
+        textColor = .black
         layer.cornerRadius = 24
         layer.borderWidth = 1
         layer.borderColor = R.Colors.gray.cgColor
         leftView = searchImageView
         leftViewMode = .always
         placeholder = "Search"
+        
+        let placeholderColor = R.Colors.secondary
+        let attributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: placeholderColor
+        ]
+        attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: attributes)
     }
     
     private func setupLayout() {

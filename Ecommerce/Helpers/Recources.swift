@@ -12,17 +12,9 @@ enum R {
         static var primary = UIColor(hexString: "#437BFE")
         static var secondary = UIColor(hexString: "#8F959E")
         
+        static var white = UIColor(hexString: "#FFFFFF")
         static var brown = UIColor(hexString: "#704f38")
         static var gray = UIColor(hexString: "#e7e7e7")
-        
-//        static var inactive = UIColor(hexString: "#929DA5")
-//        
-//        static var background = UIColor(hexString: "#F8F9F9")
-//        static var searator = UIColor(hexString: "#E8ECEF")
-//        static var secondary = UIColor(hexString: "#F0F3FF")
-//        
-//        static var titleGray = UIColor(hexString: "#545C77")
-        
     }
     
     enum Images {
@@ -38,7 +30,11 @@ enum R {
         }
         
         enum Common {
+            static var share = UIImage(named: "share")
+            static var checkmark = UIImage(named: "сheckmark")
             
+            static var noImageStub = UIImage(named: "no_image_stub")
+            static var notFound = UIImage(named: "not_found")
         }
     }
     

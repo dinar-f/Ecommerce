@@ -11,20 +11,13 @@ final class ProductsListView: UIView {
     
     private var productsList: [Product] = []
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = R.Fonts.montserratRegular(with: 20)
-        label.text = "Worth seing"
-        label.textAlignment = .center
-        return label
-    }()
-    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 6
         layout.minimumLineSpacing = 6
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.backgroundColor = .white 
         return view
     }()
     
@@ -55,21 +48,16 @@ private extension ProductsListView {
     }
     
     func addSubviews() {
-        addSubview(titleLabel)
         addSubview(collectionView)
         collectionView.register(ProductCell.self,
                                 forCellWithReuseIdentifier: ProductCell.id)
     }
     
     func setupLayout() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
-            
-            collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),

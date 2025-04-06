@@ -15,9 +15,7 @@ final class CategoryCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = R.Images.navBar.userAvatar
         imageView.clipsToBounds = true
-        imageView.image = R.Images.navBar.userAvatar
         return imageView
     }()
     
@@ -25,7 +23,6 @@ final class CategoryCell: UICollectionViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 16, weight: .medium)
         label.textAlignment = .center
-        label.text = "Clothes"
         label.textColor = .black
         return label
     }()
@@ -46,7 +43,7 @@ final class CategoryCell: UICollectionViewCell {
         if let url = URL(string: category.image) {
             imageView.kf.setImage(
                 with: url,
-                placeholder: R.Images.navBar.userAvatar, // Используем ваш ассет
+                placeholder: R.Images.Common.noImageStub,
                 options: [.transition(.fade(0.2))]
             )
         }
