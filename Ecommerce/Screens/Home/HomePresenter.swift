@@ -13,6 +13,7 @@ protocol HomePresenterProtocol: AnyObject {
     func didLoadProductsList(products: [Product])
     
     func searchButtonTapped()
+    func didSelectProduct(_ product: Product)
 }
 
 class HomePresenter {
@@ -47,6 +48,10 @@ extension HomePresenter: HomePresenterProtocol{
     
     func searchButtonTapped(){
         router.navigateToSearch()
+    }
+    
+    func didSelectProduct(_ product: Product){
+        router.navigateToProduct(with: product)
     }
 }
 

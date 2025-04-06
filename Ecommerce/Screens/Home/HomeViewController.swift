@@ -214,6 +214,8 @@ extension HomeViewController: HomeViewProtocol {
     }
     
     func showCategories(categories: [Categories]) {
+        self.categoriesList = categories
+        applySnapshot()
     }
 }
 
@@ -341,7 +343,7 @@ extension HomeViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let rowGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(itemHeight))
-        let rowGroup = NSCollectionLayoutGroup.horizontal(layoutSize: rowGroupSize, subitem: item,count: 2)
+        let rowGroup = NSCollectionLayoutGroup.horizontal(layoutSize: rowGroupSize, subitem: item, count: 2)
         rowGroup.interItemSpacing = .fixed(spacing)
         
         let verticalGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(itemHeight * 2 + rowSpacing))
@@ -359,5 +361,11 @@ extension HomeViewController {
 
 // MARK: - UICollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        
+        if case .product(let product) = item {
+            presenter?.didSelectProduct(product)
+        }
+    }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 protocol HomeRouterProtocol: AnyObject {
     func navigateToSearch()
-
+    func navigateToProduct(with product: Product)
 }
 
 class HomeRouter: HomeRouterProtocol {
@@ -21,5 +21,11 @@ class HomeRouter: HomeRouterProtocol {
         let searchVC = SearchModuleBuilder.build()
         viewController?.navigationController?.pushViewController(searchVC, animated: true)
     }
+    
+    func navigateToProduct(with product: Product) {
+        let productModule = ProductModuleBuilder.build(with: product)
+        viewController?.navigationController?.pushViewController(productModule, animated: true)
+    }
+    
 }
 
